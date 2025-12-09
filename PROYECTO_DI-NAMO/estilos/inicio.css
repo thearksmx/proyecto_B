@@ -1,0 +1,52 @@
+/* ====================================================== */
+/* estilos/inicio.css */
+/* Estilos específicos para inicio.html (Cursos/Contenido Principal) */
+/* ====================================================== */
+
+/* Estilos para el contenido principal para dejar espacio a la barra lateral */
+.main-content {
+    margin-left: 250px; 
+    padding: 40px;
+}
+
+/* Título principal */
+.main-content h1 {
+    color: var(--color-acento-azul);
+    border-bottom: 2px solid #333;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+/* Tarjetas de Cursos (simulando módulos o caminos) */
+.course-card {
+    background-color: var(--color-fondo-oscuro);
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    border-left: 6px solid var(--color-acento-azul); /* Borde azul para destacar */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.course-card:hover {
+    transform: translateY(-5px); /* Efecto 3D ligero */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.course-card h3 {
+    color: var(--color-acento-azul);
+    margin-top: 0;
+    font-size: 22px;
+}
+
+.course-card p {
+    color: var(--color-texto-secundario);
+    line-height: 1.6;
+}
+
+/* Botones dentro de las tarjetas */
+.course-card .btn-primary {
+    display: inline-block; 
+    width: auto;
+    text-decoration: none;
+    margin-top: 15px;
+}

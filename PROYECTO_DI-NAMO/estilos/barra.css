@@ -1,0 +1,92 @@
+/* ====================================================== */
+/* estilos/barra.css */
+/* Estilos base, colores y la barra lateral (Sidebar) */
+/* ====================================================== */
+
+:root {
+    --color-fondo-oscuro: #1b1b1b; /* Negro Oscuro para la barra y cajas */
+    --color-fondo-base: #2a2a2a; /* Gris Oscuro para el fondo de página */
+    --color-acento-azul: #1890ff; /* Azul brillante para acentos */
+    --color-texto-claro: #ffffff;
+    --color-texto-secundario: #a0a0a0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: var(--color-fondo-base);
+    color: var(--color-texto-claro);
+}
+
+/* ------------------ Sidebar (Barra Lateral) ------------------ */
+.sidebar {
+    width: 250px; 
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--color-fondo-oscuro);
+    padding: 20px 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.sidebar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--color-acento-azul);
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 0 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0 20px;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    color: var(--color-texto-secundario);
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Estilo activo o hover */
+.sidebar ul li a:hover, .sidebar ul li a.active {
+    background-color: rgba(var(--color-acento-azul), 0.1); 
+    color: var(--color-acento-azul);
+}
+
+.sidebar ul li a i {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+/* Estilos de botón general (usado en inicio.html y sesion.html) */
+.btn-primary {
+    padding: 12px;
+    background-color: var(--color-acento-azul);
+    color: var(--color-texto-claro);
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #0d79e5; 
+}
