@@ -71,6 +71,10 @@
                     <input type="text" id="username" name="username" required>
                 </div>
                 <div class="form-group">
+                    <label for="correo">Correo electrónico:</label>
+                    <input type="text" id="correo" name="correo" required>
+                </div>
+                <div class="form-group">
                     <label for="age">Edad:</label>
                     <input type="number" id="age" name="age" required min="10" max="99">
                 </div>
@@ -117,12 +121,12 @@
                             </select>
                             <button id="xj" type="button" onclick="
   document.getElementById('cursos').style.display='block';
-  document.getElementById('nivel').style.display='none';
   document.getElementById('nivel_java').style.display='none';
   document.getElementById('java').dataset.selected = 'false';
   if (document.getElementById('java').dataset.selected !== 'true' &&
       document.getElementById('python').dataset.selected !== 'true') {
     document.getElementById('registrar').style.display='none';
+    document.getElementById('nivel').style.display='none';
   }
 ">X</button>
                         </div>
@@ -135,12 +139,12 @@
                         </select>
                         <button id="x" type="button" onclick="
   document.getElementById('cursos').style.display='block';
-  document.getElementById('nivel').style.display='none';
   document.getElementById('nivel_python').style.display='none';
   document.getElementById('python').dataset.selected='false';
   if (document.getElementById('java').dataset.selected !== 'true' &&
       document.getElementById('python').dataset.selected !== 'true') {
     document.getElementById('registrar').style.display='none';
+    document.getElementById('nivel').style.display='none';
   }
 ">X</button>
                     </div>
@@ -156,8 +160,8 @@
 
             <form action="../scripts/registro.php" method="POST">
                 <div class="form-group">
-                    <label for="username">Nombre de Usuario:</label>
-                    <input type="text" id="username" name="username" required>
+                    <label for="user_or_mail">Usuario/Email:</label>
+                    <input type="text" id="user_or_mail" name="user_or_mail" required >
                 </div>
 
                 <div class="form-group">
