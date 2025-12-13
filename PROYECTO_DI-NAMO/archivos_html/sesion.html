@@ -1,57 +1,173 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DI-NAMO | Registro de Sesión</title>
-    <link rel="stylesheet" href="../estilos/barra.css"> 
-    <link rel="stylesheet" href="../estilos/sesion.css"> 
+    <link rel="stylesheet" href="../estilos/barra.css">
+    <link rel="stylesheet" href="../estilos/sesion.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            background-color: rgb(43, 44, 44);
+        }
+
+        #registro {
+            background-color: rgb(127, 197, 255);
+            border-radius: 7px;
+            width: 200px;
+            height: 40px;
+        }
+
+        #inicio_Sesion {
+            background-color: rgb(113, 188, 250);
+            border-radius: 7px;
+            width: 200px;
+            height: 40px;
+        }
+
+        #registro:hover {
+            cursor: pointer;
+            background-color: aliceblue;
+        }
+
+        #inicio_Sesion:hover {
+            cursor: pointer;
+            background-color: aliceblue;
+        }
+    </style>
 </head>
-<body>
 
-<div class="sesion-container">
-    <div class="sesion-box">
-        <h2>Registro en DI-NAMO</h2>
-        
-        <form action="../scripts/registro.php" method="POST">
-            <div class="form-group">
-                <label for="username">Nombre de Usuario:</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            <div class="form-group">
-                <label for="age">Edad:</label>
-                <input type="number" id="age" name="age" required min="10" max="99">
-            </div>
+<body onload="document.getElementById('registro').click();">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../archivos_html/quienes_somos.html"> Di-Namo</a>
+            <button id="registro" type="button" onclick="
+            document.getElementById('f1').style.display='block';
+  document.getElementById('f2').style.display='none';
+  document.getElementById('nivel').style.display='none';
+  document.getElementById('nivel_python').style.display='none';
+  document.getElementById('nivel_java').style.display='none';
+  document.getElementById('registrar').style.display='none';
+">Registrarse</button>
 
-            <div class="form-group">
-                <label for="password">Contraseña:</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <div class="level-questions">
-                <p style="color: var(--color-texto-claro); font-size: 15px; margin-bottom: 15px;">
-                    Para personalizar tus cursos, ¿qué nivel tienes en?
-                </p>
+            <button id="inicio_Sesion" type="button" onclick="
+  document.getElementById('f1').style.display='none';
+  document.getElementById('f2').style.display='block';
+">Iniciar sesion</button>
+        </div>
+    </nav>
+
+    <div class="sesion-container">
+        <div id="f1" class="sesion-box">
+            <h2>Registro en DI-NAMO</h2>
+
+            <form action="../scripts/registro.php" method="POST">
                 <div class="form-group">
-                    <label for="java_level">Java:</label>
-                    <select id="java_level" name="java_level" required>
-                        <option value="Principiante">Principiante (Cero experiencia)</option>
-                        <option value="Intermedio">Intermedio (Sé lo básico)</option>
-                        <option value="Avanzado">Avanzado (Desarrollo proyectos)</option>
-                    </select>
+                    <label for="username">Nombre de Usuario:</label>
+                    <input type="text" id="username" name="username" required>
                 </div>
                 <div class="form-group">
-                    <label for="python_level">Python:</label>
-                    <select id="python_level" name="python_level" required>
-                        <option value="Principiante">Principiante (Cero experiencia)</option>
-                        <option value="Intermedio">Intermedio (Sé lo básico)</option>
-                        <option value="Avanzado">Avanzado (Desarrollo proyectos)</option>
-                    </select>
+                    <label for="age">Edad:</label>
+                    <input type="number" id="age" name="age" required min="10" max="99">
                 </div>
-            </div>
-            <button type="submit" class="btn-primary">Registrarse y Empezar</button>
-        </form>
+
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+
+                <div class="level-questions">
+                    <div id="cursos">
+                        <p style="color: var(--color-texto-claro); font-size: 15px; margin-bottom: 15px;">
+                            Para empezar, que cursos te interesan tomar?
+                        </p>
+
+                        <button id="java" value="Java" type="button" onclick="
+  document.getElementById('cursos').style.display='block';
+  document.getElementById('nivel').style.display='block';
+  document.getElementById('nivel_java').style.display='block';
+  document.getElementById('registrar').style.display='block';
+  this.dataset.selected = 'true';
+">Java</button>
+
+                        <button id="python" value="Python" type="button" onclick="
+  document.getElementById('cursos').style.display='block';
+  document.getElementById('nivel').style.display='block';
+  document.getElementById('nivel_python').style.display='block';
+  document.getElementById('registrar').style.display='block';
+  this.dataset.selected = 'true';
+">Python</button>
+                    </div>
+                    <div id="nivel">
+                        <p style="color: var(--color-texto-claro); font-size: 15px; margin-bottom: 15px;">
+                            Para personalizar tus cursos, ¿qué nivel tienes en?
+                        </p>
+                        </div>
+                        <div id="nivel_java" class="form-group">
+                            <label for="java_level">Java:</label>
+                            <select id="java_level" name="java_level" required>
+                                <option value="Principiante">Principiante (Cero experiencia)</option>
+                                <option value="Intermedio">Intermedio (Sé lo básico)</option>
+                                <option value="Avanzado">Avanzado (Desarrollo proyectos)</option>
+                            </select>
+                            <button id="xj" type="button" onclick="
+  document.getElementById('cursos').style.display='block';
+  document.getElementById('nivel').style.display='none';
+  document.getElementById('nivel_java').style.display='none';
+  document.getElementById('java').dataset.selected = 'false';
+  if (document.getElementById('java').dataset.selected !== 'true' &&
+      document.getElementById('python').dataset.selected !== 'true') {
+    document.getElementById('registrar').style.display='none';
+  }
+">X</button>
+                        </div>
+                    <div id="nivel_python" class="form-group">
+                        <label for="python_level">Python:</label>
+                        <select id="python_level" name="python_level" required>
+                            <option value="Principiante">Principiante (Cero experiencia)</option>
+                            <option value="Intermedio">Intermedio (Sé lo básico)</option>
+                            <option value="Avanzado">Avanzado (Desarrollo proyectos)</option>
+                        </select>
+                        <button id="x" type="button" onclick="
+  document.getElementById('cursos').style.display='block';
+  document.getElementById('nivel').style.display='none';
+  document.getElementById('nivel_python').style.display='none';
+  document.getElementById('python').dataset.selected='false';
+  if (document.getElementById('java').dataset.selected !== 'true' &&
+      document.getElementById('python').dataset.selected !== 'true') {
+    document.getElementById('registrar').style.display='none';
+  }
+">X</button>
+                    </div>
+
+                </div>
+                <button id="registrar" type="submit" class="btn-primary">Registrarse y Empezar</button>
+            </form>
+        </div>
+
+        <!--Inicio de sesion-->
+        <div id="f2" class="sesion-box">
+            <h2>Iniciar Sesion</h2>
+
+            <form action="../scripts/registro.php" method="POST">
+                <div class="form-group">
+                    <label for="username">Nombre de Usuario:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn-primary">Iniciar Sesión</button>
+            </form>
+        </div>
     </div>
-</div>
-
 </body>
+
 </html>
